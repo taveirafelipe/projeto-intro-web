@@ -4,7 +4,7 @@ const item1 = {
   marca: "Amália",
   preco: 2.89,
   quantidade: 2000,
-  validade: new Date("12/09/2022"),
+  validade: new Date("12/10/2022"),
   tipo: ["Penne", "Grande"],
   img: "/Fotos/macarrao-amalia-penne.jpg",
   link: "https://pt.wikipedia.org/wiki/Macarr%C3%A3o",
@@ -121,6 +121,7 @@ function procuraString(arrayDeObj, string) {
 
 let varImprimirRelatorioAuto = 0;
 let variavel = 0;
+
 function imprimirRelatorioAuto(array) {
   for (let item of array) {
     //criando a section
@@ -271,3 +272,156 @@ function criarItem(){
   
   return item
 }
+
+
+
+const avencer = () =>{
+  let auxiliar = [];
+  let validade = [];
+  let retorno = []
+  for(let item of estoque){
+    if((Date.parse(item.validade) - Date.parse(new Date()))/86400000 < 90 && (Date.parse(item.validade) - Date.parse(new Date()))/86400000 > 0){
+      auxiliar.push(item)
+      validade.push((Date.parse(item.validade) - Date.parse(new Date()))/86400000)
+      validade.sort()
+    }
+  }
+
+  for(let i in validade){
+    for (let j in auxiliar){
+      if(validade[i] === (Date.parse(auxiliar[j].validade) - Date.parse(new Date()))/86400000){
+      retorno.push(auxiliar[j])
+      }
+    }
+  }
+     
+  return retorno;
+}
+
+function imprimirRelatorioAVencer(array) {
+  for (let item of array) {
+    //criando a section
+    document
+      .getElementById("centro")
+      .insertAdjacentElement("beforeend", document.createElement("section"))
+      .setAttribute("id", `item ${varImprimirRelatorioAuto}`);
+    document
+      .getElementById(`item ${varImprimirRelatorioAuto}`)
+      .setAttribute("class", "conteiner-produtos");
+
+    //adicionando a img
+    document
+      .getElementById(`item ${varImprimirRelatorioAuto}`)
+      .insertAdjacentElement("beforeend", document.createElement("img"))
+      .setAttribute("id", `foto ${varImprimirRelatorioAuto}`);
+    document
+      .getElementById(`foto ${varImprimirRelatorioAuto}`)
+      .setAttribute("src", `${item.img}`);
+    document
+      .getElementById(`foto ${varImprimirRelatorioAuto}`)
+      .setAttribute("alt", `${item.nome}-${item.marca}`);
+    document
+      .getElementById(`foto ${varImprimirRelatorioAuto}`)
+      .setAttribute("class", "imagens");
+
+    //adicionando ul
+    document
+      .getElementById(`item ${varImprimirRelatorioAuto}`)
+      .insertAdjacentElement("beforeend", document.createElement("ul"))
+      .setAttribute("id", `ul ${varImprimirRelatorioAuto}`);
+    document
+      .getElementById(`ul ${varImprimirRelatorioAuto}`)
+      .setAttribute("class", "texto");
+
+    //adicionando li
+    for (let caraterística in item) {
+      if (caraterística === "link") {
+      } else if (caraterística === "img") {
+      } else if (caraterística === "validade") {
+        document
+          .getElementById(`ul ${varImprimirRelatorioAuto}`)
+          .insertAdjacentElement("beforeend", document.createElement("li"))
+          .setAttribute("id", `li ${variavel}`);
+
+        document.getElementById(
+          `li ${variavel}`
+        ).innerHTML = `<strong>${caraterística.toLocaleUpperCase()}</strong>: ${item[
+          caraterística
+        ].toLocaleDateString()}`;
+        variavel++;
+      } else if (caraterística === "nome") {
+        document
+          .getElementById(`ul ${varImprimirRelatorioAuto}`)
+          .insertAdjacentElement("beforeend", document.createElement("li"))
+          .setAttribute("id", `li ${variavel}`);
+
+        document.getElementById(
+          `li ${variavel}`
+        ).innerHTML = `<strong><a href="${item.link}">${item[
+          caraterística
+        ].toLocaleUpperCase()}</a></strong> `;
+        variavel++;
+      } else if (caraterística === "tipo"){
+        document
+          .getElementById(`ul ${varImprimirRelatorioAuto}`)
+          .insertAdjacentElement("beforeend", document.createElement("li"))
+          .setAttribute("id", `li ${variavel}`);
+
+        document.getElementById(
+          `li ${variavel}`
+        ).innerHTML = `<strong>${caraterística.toLocaleUpperCase()}</strong>: ${
+          item[caraterística]
+        }`;
+        variavel++;
+
+        document
+          .getElementById(`ul ${varImprimirRelatorioAuto}`)
+          .insertAdjacentElement("beforeend", document.createElement("li"))
+          .setAttribute("id", `li ${variavel}`);
+        document.getElementById(`li ${variavel}`).setAttribute("class", `validade`);
+
+        let validade = (Date.parse(item.validade) - Date.parse(new Date()))/86400000;
+
+        document.getElementById(
+          `li ${variavel}`
+        ).innerHTML = `<br><strong>Faltam ${Math.trunc(validade)} dias para o produto vencer!</strong>`;
+        variavel++;
+      } else {
+        document
+          .getElementById(`ul ${varImprimirRelatorioAuto}`)
+          .insertAdjacentElement("beforeend", document.createElement("li"))
+          .setAttribute("id", `li ${variavel}`);
+
+        document.getElementById(
+          `li ${variavel}`
+        ).innerHTML = `<strong>${caraterística.toLocaleUpperCase()}</strong>: ${
+          item[caraterística]
+        }`;
+        variavel++;
+      }
+     
+    }
+    varImprimirRelatorioAuto++;
+  }
+
+}
+
+const imprimirAVencer = () => {
+  imprimirRelatorioAVencer(avencer());
+}
+
+const procuraElementoAVencer = () =>{
+  imprimirRelatorioAVencer(
+    procuraString(avencer(), document.getElementById("procura").value.trim())
+  );
+}
+
+const limparPesquisaAVencer = () => {
+  const arr = [...document.getElementsByClassName("conteiner-produtos")];
+  const cont = arr.length;
+  for (let s = 0; s < cont; s++) {
+    arr[s].remove();
+  }
+
+  imprimirRelatorioAVencer(avencer());
+};
