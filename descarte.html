@@ -27,30 +27,35 @@
             <div class="botao">
                 <label for="procura"></label>
                 <input type="text" name="procura" id="procura" placeholder="Procurar...">
-                <button type="submit" onclick="procuraElementoDescarte()">Enviar</button>
-                <button type="submit" onclick="limparPesquisaDescarte()">Limpar Pesquisa</button>
+                <button type="submit" class="botoes" id="enviar" onclick="procuraElementoDescarte()">Enviar</button>
+                <button type="submit" class="botoes"onclick="limparPesquisaDescarte()">Limpar Pesquisa</button>
             </div>
         </div>
         <div class="div-flex">
             <nav>
-                <h3><a href="/home.html">Home</a></h3>
-                <h3><a href="/estoque.html">Estoque</a></h3>
-                <h3><a href="/vencer.html">A Vencer</a></h3>
-                <h3><a href="/cadastro.html">Cadastro</a></h3>
+                <a href="/home.html">Home</a>
+                <a href="/estoque.html">Estoque</a>
+                <a href="/vencer.html">A Vencer</a>
+                <a href="/cadastro.html">Cadastro</a>
+                <br>
             </nav>
             <div class="centro" id="centro">
                 <script>
                     window.onload = imprimirDescarte()
                 </script>
             </div>
-            <aside>
-                    <h2>Atenção</h2>
-                    <h4>Feijão Supang</h4>
-                    <p>Vence em X dias</p>
-                    <h4>Arroz Carijo</h4>
-                    <p>Vence em X dias</p>
-                    <p id="saiba">+ Saiba mais</p>
-            </aside>
+            <aside id="infos">
+                <h2>Atenção</h2>
+                <script>
+                    window.onload = aside()
+
+                    document.addEventListener('keydown', function(e) {
+                    if(e.key == "Enter"){
+                    document.getElementById("enviar").click();
+                    }
+                    });
+                </script>
+        </aside>
         </div>
     </main>
     <footer>

@@ -1,4 +1,4 @@
-//Transforme os itens que criamos nas últimas semanas em objetos.
+//Itens
 const item1 = {
   nome: "Macarrão",
   marca: "Amália",
@@ -43,32 +43,130 @@ const item4 = {
   link: "https://pt.wikipedia.org/wiki/Farinha",
 };
 
-//Crie um array para guardar os objetos. Este array deve estar vazio, por enquanto;
+const item5 = {
+  nome: "Sal",
+  marca: "Cisne",
+  preco: 2.49,
+  quantidade: 3000,
+  validade: new Date("01/01/2025"),
+  tipo: ["Iodado", "Refinado"],
+  img: "/Fotos/sal-cisne.jpg",
+  link: "https://pt.wikipedia.org/wiki/Sal",
+};
+
+const item6 = {
+  nome: "Pasta de Dente",
+  marca: "Colgate",
+  preco: 3.97,
+  quantidade: 5000,
+  validade: new Date("10/21/2023"),
+  tipo: ["Menta"],
+  img: "/Fotos/pasta-de-dente-colgate.jpg",
+  link: "https://pt.wikipedia.org/wiki/Dent%C3%ADfrico",
+};
+
+const item7 = {
+  nome: "Cerveja",
+  marca: "Heineken",
+  preco: 7.99,
+  quantidade: 1200,
+  validade: new Date("06/06/2023"),
+  tipo: ["Puro Malte"],
+  img: "/Fotos/heineken-original-bottle.jpg",
+  link: "https://pt.wikipedia.org/wiki/Cerveja",
+};
+
+const item8 = {
+  nome: "Frango",
+  marca: "Seara",
+  preco: 15.99,
+  quantidade: 1000,
+  validade: new Date("12/01/2022"),
+  tipo: ["Filé de Peito"],
+  img: "/Fotos/File-de-Peito-de-Frango-Seara-Congelado-Bandeja-1-kg.webp",
+  link: "https://pt.wikipedia.org/wiki/Frango",
+};
+
+const item9 = {
+  nome: "Refrigerante",
+  marca: "Coca-Cola",
+  preco: 7.99,
+  quantidade: 500,
+  validade: new Date("10/21/2022"),
+  tipo: ["Cola"],
+  img: "/Fotos/coca-coca.jpg",
+  link: "https://pt.wikipedia.org/wiki/Refrigerante",
+};
+
+const item10 = {
+  nome: "Café",
+  marca: "Três Corações",
+  preco: 9.99,
+  quantidade: 1500,
+  validade: new Date("09/03/2022"),
+  tipo: ["Tradicional", "Moído"],
+  img: "/Fotos/cafe-tres.webp",
+  link: "https://pt.wikipedia.org/wiki/Caf%C3%A9",
+};
+
+const item11 = {
+  nome: "Biscoito",
+  marca: "Marilan",
+  preco: 10.99,
+  quantidade: 2300,
+  validade: new Date("01/05/2024"),
+  tipo: ["Maizena"],
+  img: "/Fotos/biscoito-marilan.webp",
+  link: "https://pt.wikipedia.org/wiki/Biscoito",
+};
+
+const item12 = {
+  nome: "Sabão em Pó",
+  marca: "Tixan",
+  preco: 7.99,
+  quantidade: 1400,
+  validade: new Date("06/06/2025"),
+  tipo: ["Primavera"],
+  img: "/Fotos/tixan-ype.jpg",
+  link: "https://pt.wikipedia.org/wiki/Sab%C3%A3o",
+};
+
+const item13 = {
+  nome: "Pão de Queijo",
+  marca: "Maricota",
+  preco: 14.99,
+  quantidade: 500,
+  validade: new Date("06/06/2023"),
+  tipo: ["Congelado", "Pequeno"],
+  img: "/Fotos/pao-de-queijo.jpg",
+  link: "https://pt.wikipedia.org/wiki/P%C3%A3o_de_queijo",
+};
+
+const item14 = {
+  nome: "Leite",
+  marca: "Piracanjuba",
+  preco: 5.29,
+  quantidade: 1200,
+  validade: new Date("09/09/2022"),
+  tipo: ["Integral", "UHT"],
+  img: "/Fotos/leite.webp",
+  link: "https://pt.wikipedia.org/wiki/Leite",
+};
+
+const item15 = {
+  nome: "Chinelo",
+  marca: "Havaianas",
+  preco: 24.99,
+  quantidade: 1200,
+  validade: new Date("12/12/2032"),
+  tipo: ["Brasil", "Branca"],
+  img: "/Fotos/Chinelo.webp",
+  link: "https://pt.wikipedia.org/wiki/Chinelo",
+};
+
+//Arrays para guardarem os objetos.
 let estoque = [];
 let descarte = [];
-
-//FUNÇÕES NÃO UTILIZADAS MAIS
-
-function imprimeRelatorio(array, string) {
-  for (let obj in array) {
-    for (let caraterística in array[obj]) {
-      if (caraterística === "nome") {
-        console.log(array[obj][caraterística].toLocaleUpperCase());
-      } else if (caraterística === "tipo") {
-        console.log(`${caraterística}: \"${array[obj][caraterística]}\"`);
-      } else {
-        console.log(`${caraterística}: ${array[obj][caraterística]}`);
-      }
-    }
-  }
-}
-function devolveString(objArray) {
-  let strings = "";
-  for (let string of objArray) {
-    strings += string + ", ";
-  }
-  return strings;
-}
 
 //FUNÇÕES EM USO
 
@@ -84,6 +182,37 @@ agruparItensComValidadeBoaOuNaoEmArrays(item1);
 agruparItensComValidadeBoaOuNaoEmArrays(item2);
 agruparItensComValidadeBoaOuNaoEmArrays(item3);
 agruparItensComValidadeBoaOuNaoEmArrays(item4);
+agruparItensComValidadeBoaOuNaoEmArrays(item5);
+agruparItensComValidadeBoaOuNaoEmArrays(item6);
+agruparItensComValidadeBoaOuNaoEmArrays(item7);
+agruparItensComValidadeBoaOuNaoEmArrays(item8);
+agruparItensComValidadeBoaOuNaoEmArrays(item9);
+agruparItensComValidadeBoaOuNaoEmArrays(item10);
+agruparItensComValidadeBoaOuNaoEmArrays(item11);
+agruparItensComValidadeBoaOuNaoEmArrays(item12);
+agruparItensComValidadeBoaOuNaoEmArrays(item13);
+agruparItensComValidadeBoaOuNaoEmArrays(item14);
+agruparItensComValidadeBoaOuNaoEmArrays(item15);
+
+function organizarOrdemAlfabetica(array, string){
+  let array2 = []
+  let array3 = []
+ 
+  for(let item of array){
+    array2.push(item.nome)
+    array2.sort()
+  }
+  for(let item of array){
+    for(let i in array2){
+      if(array2[i] === item.nome){
+        array3[i] = item
+      }
+    }
+  }
+  
+  if(string === "estoque"){estoque = [...array3];}
+  if(string === "descarte"){descarte = [...array3];}
+}
 
 function procuraString(arrayDeObj, string) {
   let array = [];
@@ -206,10 +335,12 @@ function imprimirRelatorioAuto(array) {
 
 const imprimirEstoque = () => {
   agruparItensComValidadeBoaOuNaoEmArrays(criarItem())
+  organizarOrdemAlfabetica(estoque, "estoque")
   imprimirRelatorioAuto(estoque);
 }
 const imprimirDescarte = () => {
   agruparItensComValidadeBoaOuNaoEmArrays(criarItem())
+  organizarOrdemAlfabetica(descarte, "descarte")
   imprimirRelatorioAuto(descarte);
 }
 
@@ -246,16 +377,21 @@ const limparPesquisaDescarte = () => {
 };
 
 function cadastroItem() {
-  localStorage.setItem("nome", document.getElementById("nome").value);
-  localStorage.setItem("marca", document.getElementById("marca").value);
-  localStorage.setItem("preco", Number(document.getElementById("preco").value));
-  localStorage.setItem("quantidade", Number(document.getElementById("quantidade").value));
-  localStorage.setItem("validade", new Date(document.getElementById("validade").value));
-  localStorage.setItem("tipo", String(document.getElementById("tipo").value));
-  localStorage.setItem("img", document.getElementById("img").value);
-  localStorage.setItem("link", document.getElementById("link").value);
+  if(document.getElementById("nome").value !== "" && document.getElementById("marca").value !== "" && document.getElementById("validade").value !== "" && document.getElementById("link").value !== "" && document.getElementById("img").value !== ""
+  ) {
+    localStorage.setItem("nome", document.getElementById("nome").value);
+    localStorage.setItem("marca", document.getElementById("marca").value);
+    localStorage.setItem("preco", Number(document.getElementById("preco").value));
+    localStorage.setItem("quantidade", Number(document.getElementById("quantidade").value));
+    localStorage.setItem("validade", new Date(document.getElementById("validade").value));
+    localStorage.setItem("tipo", String(document.getElementById("tipo").value));
+    localStorage.setItem("img", document.getElementById("img").value);
+    localStorage.setItem("link", document.getElementById("link").value);
 
-  // console.log(localStorage.getItem("nome"))
+    alert("Item cadastrado com sucesso!")
+  }else{
+    alert("Digite valores válidos!")
+  }
 }
 
 function criarItem(){
@@ -273,29 +409,24 @@ function criarItem(){
   return item
 }
 
-
-
 const avencer = () =>{
   let auxiliar = [];
   let validade = [];
-  let retorno = []
+  let retorno = [];
+  
   for(let item of estoque){
     if((Date.parse(item.validade) - Date.parse(new Date()))/86400000 < 90 && (Date.parse(item.validade) - Date.parse(new Date()))/86400000 > 0){
       auxiliar.push(item)
       validade.push((Date.parse(item.validade) - Date.parse(new Date()))/86400000)
       validade.sort()
     }
-  }
-
-  for(let i in validade){
+  }for(let i in validade){
     for (let j in auxiliar){
       if(validade[i] === (Date.parse(auxiliar[j].validade) - Date.parse(new Date()))/86400000){
       retorno.push(auxiliar[j])
       }
     }
-  }
-     
-  return retorno;
+  }return retorno;
 }
 
 function imprimirRelatorioAVencer(array) {
@@ -425,3 +556,29 @@ const limparPesquisaAVencer = () => {
 
   imprimirRelatorioAVencer(avencer());
 };
+
+const aside = () =>{
+  const itensAVencer = avencer();
+  if(itensAVencer.length<3){
+    iteracao = itensAVencer.length;
+    for(let i=0; i<iteracao; i++){
+      let validade = (Date.parse(itensAVencer[i].validade) - Date.parse(new Date()))/86400000;
+      
+      document.getElementById("infos").innerHTML += `<h4>${itensAVencer[i].nome} ${itensAVencer[i].marca}</h4><p>Vence em ${Math.trunc(validade)} dias</p>`
+    }
+    document.getElementById("infos").innerHTML += `<p id="saiba"><a href="/vencer.html">+ Saiba mais</a></p>`
+  }else{
+    iteracao = 3;
+    for(let i=0; i<iteracao; i++){
+      let validade = (Date.parse(itensAVencer[i].validade) - Date.parse(new Date()))/86400000;
+      
+      document.getElementById("infos").innerHTML += `<h4>${itensAVencer[i].nome} ${itensAVencer[i].marca}</h4><p>Vence em ${Math.trunc(validade)} dias</p>`
+    }
+    document.getElementById("infos").innerHTML += `<p id="saiba"><a href="/vencer.html">+ Saiba mais</a></p>`
+  }
+  
+  
+}
+
+
+

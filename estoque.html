@@ -24,32 +24,37 @@
     <main>
         <div>
             <h2 class="subtitulo"><strong>Estoque</strong></h2>
-            <div class="botao">
+            <div class="pesquisa">
                 <label for="procura"></label>
                 <input type="text" name="procura" id="procura"  placeholder="Procurar...">
-                <button type="submit" onclick="procuraElementoEstoque()">Enviar</button>
-                <button type="submit" onclick="limparPesquisaEstoque()">Limpar Pesquisa</button>
+                <button type="submit" class="botoes" id="enviar" onclick="procuraElementoEstoque()">Enviar</button>
+                <button type="submit" class="botoes" onclick="limparPesquisaEstoque()">Limpar Pesquisa</button>
             </div>
         </div>
         <div class="div-flex">
             <nav>
-                <h3><a href="/home.html">Home</a></h3>
-                <h3><a href="/vencer.html">A Vencer</a></h3>
-                <h3><a href="/descarte.html">Descarte</a></h3>
-                <h3><a href="/cadastro.html">Cadastro</a></h3>
+                <a href="/home.html">Home</a>
+                <a href="/descarte.html">Descarte</a>
+                <a href="/vencer.html">A Vencer</a>
+                <a href="/cadastro.html">Cadastro</a>
+                <br>
             </nav>
             <div class="centro" id="centro">
                 <script>
                     window.onload = imprimirEstoque()
                 </script>
             </div>
-            <aside>
+            <aside id="infos">
                     <h2>Atenção</h2>
-                    <h4>Feijão Supang</h4>
-                    <p>Vence em X dias</p>
-                    <h4>Arroz Carijo</h4>
-                    <p>Vence em X dias</p>
-                    <p id="saiba">+ Saiba mais</p>
+                    <script>
+                        window.onload = aside()
+
+                        document.addEventListener('keydown', function(e) {
+                        if(e.key == "Enter"){
+                        document.getElementById("enviar").click();
+                        }
+                        });
+                    </script>
             </aside>
         </div>
     </main>

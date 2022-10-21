@@ -27,30 +27,52 @@
         </div>
         <div class="div-flex">
             <nav>
-                <h3><a href="/home.html">Home</a></h3>
-                <h3><a href="/estoque.html">Estoque</a></h3>
-                <h3><a href="/vencer.html">A Vencer</a></h3>
-                <h3><a href="/descarte.html">Descarte</a></h3>
-                
+                <a href="/home.html">Home</a>
+                <a href="/estoque.html">Estoque</a>
+                <a href="/descarte.html">Descarte</a>
+                <a href="/vencer.html">A Vencer</a>
+                <br>
             </nav>
             <div class="conteiner">
                 <form >
-                    <input type="url" name="foto" id="img" placeholder="Link da foto...">
+                    <br>
+                    <br>
+                    <label>Insira um link de uma foto: *</label>
+                    <input type="url" name="foto" class="inputs" id="img" placeholder="Foto...">
                     <div class="centro" >
-                        <input type="text" name="nome" class="inputs" id="nome"  placeholder="Nome..." required>
-                        <input type="text" name="marca" class="inputs" id="marca"  placeholder="Marca..." required>
+                        <label class="label">Nome: *</label>
+                        <label class="label">Marca: *</label>
+                        <input type="text" name="nome" class="inputs" id="nome"  placeholder="Nome...">
+                        <input type="text" name="marca" class="inputs" id="marca"  placeholder="Marca...">
+                        <label class="label">Preço:</label>
+                        <label class="label">Quantidade:</label>
                         <input type="number" name="preco" class="inputs" id="preco"  placeholder="Preço...">
                         <input type="number" name="quantidade" class="inputs" id="quantidade"  placeholder="Quantidade..." required>
+                        <label class="label">Validade: *</label>
+                        <label class="label">Tipo:</label>
                         <input type="date" name="validade" class="inputs" id="validade"  placeholder="Data de Validade..." required>
                         <input type="text" name="tipo" class="inputs" id="tipo"  placeholder="Tipo...">
+                        <label class="label" >Link pesquisa: *</label>
+                        <br>
                         <input type="url" name="link" class="inputs" id="link"  placeholder="Link...">
+                        <p>* Obrigatório</p>
                     </div>
                     <button type="button" id="enviar" onclick="cadastroItem()">ENVIAR</button>
+                    <br>
                 </form>
             </div>
-            <aside>
-                
-            </aside>
+            <aside id="infos">
+                <h2>Atenção</h2>
+                <script>
+                    window.onload = aside()
+
+                    document.addEventListener('keydown', function(e) {
+                    if(e.key == "Enter"){
+                    document.getElementById("enviar").click();
+                    }
+                    });
+                </script>
+        </aside>
         </div>
     </main>
     <footer>
